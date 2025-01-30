@@ -1,116 +1,52 @@
-{\rtf1\ansi\ansicpg949\cocoartf2821
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+document.addEventListener("DOMContentLoaded", function() {
+    let fruitSelected = '';
 
-\f0\fs24 \cf0 // script.js\
-\
-let fruitSelected = '';\
-\/* styles.css */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    const selectFruit = (fruit) => {
+        fruitSelected = fruit;
+        displayResult();
+    };
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+    const displayResult = () => {
+        const resultSection = document.getElementById('result-section');
+        const questionSection = document.getElementById('question-section');
+        const resultText = document.getElementById('result-text');
+        const mbtiResult = document.getElementById('mbti-result');
+        const bloodTypeResult = document.getElementById('blood-type-result');
+        const nicknameResult = document.getElementById('nickname-result');
 
-#app {
-    background-color: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-}
+        questionSection.style.display = 'none';
+        resultSection.style.display = 'block';
 
-header h1 {
-    color: #ff6347;
-    font-size: 2em;
-    margin-bottom: 10px;
-}
+        if (fruitSelected === '딸기') {
+            resultText.innerHTML = '🔥 당신은 열정적이고, 리더십이 넘치는 성격입니다!';
+            mbtiResult.innerHTML = 'MBTI: ENFJ';
+            bloodTypeResult.innerHTML = '혈액형: AB형';
+            nicknameResult.innerHTML = '팻네임: “딸기 폭풍”';
+        } else if (fruitSelected === '사과') {
+            resultText.innerHTML = '🍏 당신은 차분하고, 계획적인 성격입니다!';
+            mbtiResult.innerHTML = 'MBTI: ISFJ';
+            bloodTypeResult.innerHTML = '혈액형: O형';
+            nicknameResult.innerHTML = '팻네임: “사과 마스터”';
+        } else if (fruitSelected === '레몬') {
+            resultText.innerHTML = '🍋 당신은 독립적이고, 분석적인 성격입니다!';
+            mbtiResult.innerHTML = 'MBTI: INTJ';
+            bloodTypeResult.innerHTML = '혈액형: A형';
+            nicknameResult.innerHTML = '팻네임: “레몬 장인”';
+        } else if (fruitSelected === '바나나') {
+            resultText.innerHTML = '🍌 당신은 긍정적이고, 에너지 넘치는 성격입니다!';
+            mbtiResult.innerHTML = 'MBTI: ESFP';
+            bloodTypeResult.innerHTML = '혈액형: B형';
+            nicknameResult.innerHTML = '팻네임: “바나나 해피”';
+        }
+    };
 
-#question-section {
-    margin-bottom: 30px;
-}
+    const restart = () => {
+        fruitSelected = '';
+        document.getElementById('question-section').style.display = 'block';
+        document.getElementById('result-section').style.display = 'none';
+    };
 
-button {
-    background-color: #ff6347;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    margin: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2em;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #ff4500;
-}
-
-#result-section {
-    font-size: 1.5em;
-}
-
-#result-section p {
-    margin: 10px 0;
-}
-
-const selectFruit = (fruit) => \{\
-    fruitSelected = fruit;\
-    displayResult();\
-\};\
-\
-const displayResult = () => \{\
-    const resultSection = document.getElementById('result-section');\
-    const questionSection = document.getElementById('question-section');\
-    const resultText = document.getElementById('result-text');\
-    const mbtiResult = document.getElementById('mbti-result');\
-    const bloodTypeResult = document.getElementById('blood-type-result');\
-    const nicknameResult = document.getElementById('nickname-result');\
-\
-    questionSection.style.display = 'none';\
-    resultSection.style.display = 'block';\
-\
-    if (fruitSelected === '\uc0\u46392 \u44592 ') \{\
-        resultText.innerHTML = '\uc0\u55357 \u56613  \u45817 \u49888 \u51008  \u50676 \u51221 \u51201 \u51060 \u44256 , \u47532 \u45908 \u49901 \u51060  \u45336 \u52824 \u45716  \u49457 \u44201 \u51077 \u45768 \u45796 !';\
-        mbtiResult.innerHTML = 'MBTI: ENFJ';\
-        bloodTypeResult.innerHTML = '\uc0\u54792 \u50529 \u54805 : AB\u54805 ';\
-        nicknameResult.innerHTML = '\uc0\u54075 \u45348 \u51076 : \'93\u46392 \u44592  \u54253 \u54413 \'94';\
-    \} else if (fruitSelected === '\uc0\u49324 \u44284 ') \{\
-        resultText.innerHTML = '\uc0\u55356 \u57167  \u45817 \u49888 \u51008  \u52264 \u48516 \u54616 \u44256 , \u44228 \u54925 \u51201 \u51064  \u49457 \u44201 \u51077 \u45768 \u45796 !';\
-        mbtiResult.innerHTML = 'MBTI: ISFJ';\
-        bloodTypeResult.innerHTML = '\uc0\u54792 \u50529 \u54805 : O\u54805 ';\
-        nicknameResult.innerHTML = '\uc0\u54075 \u45348 \u51076 : \'93\u49324 \u44284  \u47560 \u49828 \u53552 \'94';\
-    \} else if (fruitSelected === '\uc0\u47112 \u47788 ') \{\
-        resultText.innerHTML = '\uc0\u55356 \u57163  \u45817 \u49888 \u51008  \u46021 \u47549 \u51201 \u51060 \u44256 , \u48516 \u49437 \u51201 \u51064  \u49457 \u44201 \u51077 \u45768 \u45796 !';\
-        mbtiResult.innerHTML = 'MBTI: INTJ';\
-        bloodTypeResult.innerHTML = '\uc0\u54792 \u50529 \u54805 : A\u54805 ';\
-        nicknameResult.innerHTML = '\uc0\u54075 \u45348 \u51076 : \'93\u47112 \u47788  \u51109 \u51064 \'94';\
-    \} else if (fruitSelected === '\uc0\u48148 \u45208 \u45208 ') \{\
-        resultText.innerHTML = '\uc0\u55356 \u57164  \u45817 \u49888 \u51008  \u44557 \u51221 \u51201 \u51060 \u44256 , \u50640 \u45320 \u51648  \u45336 \u52824 \u45716  \u49457 \u44201 \u51077 \u45768 \u45796 !';\
-        mbtiResult.innerHTML = 'MBTI: ESFP';\
-        bloodTypeResult.innerHTML = '\uc0\u54792 \u50529 \u54805 : B\u54805 ';\
-        nicknameResult.innerHTML = '\uc0\u54075 \u45348 \u51076 : \'93\u48148 \u45208 \u45208  \u54644 \u54588 \'94';\
-    \}\
-\};\
-\
-const restart = () => \{\
-    fruitSelected = '';\
-    document.getElementById('question-section').style.display = 'block';\
-    document.getElementById('result-section').style.display = 'none';\
-\};\
-}
+    // Export the function to be available in the HTML context
+    window.selectFruit = selectFruit;
+    window.restart = restart;
+});
