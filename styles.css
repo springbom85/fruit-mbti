@@ -1,43 +1,48 @@
-{\rtf1\ansi\ansicpg949\cocoartf2821
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+// script.js
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="ko">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>\uc0\u44284 \u51068  \u52712 \u54693  \u48516 \u49437 \u44592 </title>\
-    <link rel="stylesheet" href="styles.css">\
-</head>\
-<body>\
-    <div id="app">\
-        <header>\
-            <h1>\uc0\u44284 \u51068  \u52712 \u54693  \u48516 \u49437 \u44592  \u55356 \u57159 \u55356 \u57165 </h1>\
-            <p>\uc0\u45817 \u49888 \u51032  \u44284 \u51068  \u52712 \u54693 \u51012  \u53685 \u54644 , \u54792 \u50529 \u54805 \u44284  MBTI\u47484  \u52628 \u52769 \u54616 \u44256 , \u54075 \u45348 \u51076 \u51012  \u50508 \u50500 \u48372 \u49464 \u50836 !</p>\
-        </header>\
-        <div id="question-section">\
-            <div id="question">\
-                <h2>\uc0\u45817 \u49888 \u51060  \u44032 \u51109  \u51339 \u50500 \u54616 \u45716  \u44284 \u51068 \u51008  \u47924 \u50631 \u51064 \u44032 \u50836 ?</h2>\
-                <button onclick="selectFruit('\uc0\u46392 \u44592 ')">\u46392 \u44592 </button>\
-                <button onclick="selectFruit('\uc0\u49324 \u44284 ')">\u49324 \u44284 </button>\
-                <button onclick="selectFruit('\uc0\u47112 \u47788 ')">\u47112 \u47788 </button>\
-                <button onclick="selectFruit('\uc0\u48148 \u45208 \u45208 ')">\u48148 \u45208 \u45208 </button>\
-            </div>\
-        </div>\
-        <div id="result-section" style="display: none;">\
-            <h2>\uc0\u44208 \u44284 !</h2>\
-            <p id="result-text"></p>\
-            <p id="mbti-result"></p>\
-            <p id="blood-type-result"></p>\
-            <p id="nickname-result"></p>\
-            <button onclick="restart()">\uc0\u45796 \u49884  \u49884 \u51089 </button>\
-        </div>\
-    </div>\
-    <script src="script.js"></script>\
-</body>\
-</html>\
-}
+let fruitSelected = '';
+
+const selectFruit = (fruit) => {
+    fruitSelected = fruit;
+    displayResult();
+};
+
+const displayResult = () => {
+    const resultSection = document.getElementById('result-section');
+    const questionSection = document.getElementById('question-section');
+    const resultText = document.getElementById('result-text');
+    const mbtiResult = document.getElementById('mbti-result');
+    const bloodTypeResult = document.getElementById('blood-type-result');
+    const nicknameResult = document.getElementById('nickname-result');
+
+    questionSection.style.display = 'none';
+    resultSection.style.display = 'block';
+
+    if (fruitSelected === '딸기') {
+        resultText.innerHTML = '🔥 당신은 열정적이고, 리더십이 넘치는 성격입니다!';
+        mbtiResult.innerHTML = 'MBTI: ENFJ';
+        bloodTypeResult.innerHTML = '혈액형: AB형';
+        nicknameResult.innerHTML = '팻네임: “딸기 폭풍”';
+    } else if (fruitSelected === '사과') {
+        resultText.innerHTML = '🍏 당신은 차분하고, 계획적인 성격입니다!';
+        mbtiResult.innerHTML = 'MBTI: ISFJ';
+        bloodTypeResult.innerHTML = '혈액형: O형';
+        nicknameResult.innerHTML = '팻네임: “사과 마스터”';
+    } else if (fruitSelected === '레몬') {
+        resultText.innerHTML = '🍋 당신은 독립적이고, 분석적인 성격입니다!';
+        mbtiResult.innerHTML = 'MBTI: INTJ';
+        bloodTypeResult.innerHTML = '혈액형: A형';
+        nicknameResult.innerHTML = '팻네임: “레몬 장인”';
+    } else if (fruitSelected === '바나나') {
+        resultText.innerHTML = '🍌 당신은 긍정적이고, 에너지 넘치는 성격입니다!';
+        mbtiResult.innerHTML = 'MBTI: ESFP';
+        bloodTypeResult.innerHTML = '혈액형: B형';
+        nicknameResult.innerHTML = '팻네임: “바나나 해피”';
+    }
+};
+
+const restart = () => {
+    fruitSelected = '';
+    document.getElementById('question-section').style.display = 'block';
+    document.getElementById('result-section').style.display = 'none';
+};
