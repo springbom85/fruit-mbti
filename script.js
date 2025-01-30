@@ -8,7 +8,67 @@
 \f0\fs24 \cf0 // script.js\
 \
 let fruitSelected = '';\
-\
+\/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#app {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+header h1 {
+    color: #ff6347;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#question-section {
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff4500;
+}
+
+#result-section {
+    font-size: 1.5em;
+}
+
+#result-section p {
+    margin: 10px 0;
+}
+
 const selectFruit = (fruit) => \{\
     fruitSelected = fruit;\
     displayResult();\
