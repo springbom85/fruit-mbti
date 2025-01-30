@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
     let fruitSelected = '';
 
+    // selectFruit 함수 정의
     const selectFruit = (fruit) => {
         fruitSelected = fruit;
         displayResult();
     };
 
+    // 결과 화면을 보여주는 함수
     const displayResult = () => {
         const resultSection = document.getElementById('result-section');
         const questionSection = document.getElementById('question-section');
@@ -40,13 +42,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
+    // 초기화 함수
     const restart = () => {
         fruitSelected = '';
         document.getElementById('question-section').style.display = 'block';
         document.getElementById('result-section').style.display = 'none';
     };
 
-    // Export the function to be available in the HTML context
-    window.selectFruit = selectFruit;
-    window.restart = restart;
+    // 각 버튼 클릭 시 selectFruit 함수 호출
+    document.getElementById('strawberry-btn').addEventListener('click', () => selectFruit('딸기'));
+    document.getElementById('apple-btn').addEventListener('click', () => selectFruit('사과'));
+    document.getElementById('lemon-btn').addEventListener('click', () => selectFruit('레몬'));
+    document.getElementById('banana-btn').addEventListener('click', () => selectFruit('바나나'));
 });
